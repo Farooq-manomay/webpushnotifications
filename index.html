@@ -7,12 +7,13 @@
 </head>
 <body>
     <button onclick="subscribe()">subscribe</button>
-
+    <div id="output"></div>
     <script>
 
         addEventListener('load', async () => {
             let sw = navigator.serviceWorker.register('./sw.js');
             console.log("service worker",sw);
+            document.getElementById('output').innerHTML = sw;
         })
 
         async function subscribe() {
