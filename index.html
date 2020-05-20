@@ -13,7 +13,7 @@
         addEventListener('load', async () => {
             let sw = navigator.serviceWorker.register('./sw.js');
             console.log("service worker",sw);
-            document.getElementById('output').innerHTML = sw;
+            document.getElementById('output').innerHTML = sw.JSON();
         })
 
         async function subscribe() {
