@@ -9,11 +9,13 @@
     <button onclick="subscribe()">subscribe</button>
     <button onclick="sender()">send</button>
 
-    <script>
-        import pusher from './push';
+    <script type="module" src="push.js">
         function sender(){
             pusher();
         }
+    </script>
+    <script>
+        
         addEventListener('load', async () => {
             let sw = navigator.serviceWorker.register('./sw.js');
             console.log("service worker",sw);
