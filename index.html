@@ -9,13 +9,13 @@
     <button onclick="subscribe()">subscribe</button>
     <button onclick="sender()">send</button>
 
-    <script type="module" src="push.js">
+    <script type="text/javascript" src="push.js">
+        
+    </script>
+    <script>
         function sender(){
             pusher();
         }
-    </script>
-    <script>
-        
         addEventListener('load', async () => {
             let sw = navigator.serviceWorker.register('./sw.js');
             console.log("service worker",sw);
