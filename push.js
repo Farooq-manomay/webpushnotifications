@@ -1,4 +1,4 @@
-export default function pusher(){
+pusher = ()=>{
   var push = require('web-push');
   
   let vapidkeys = {
