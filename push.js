@@ -10,31 +10,42 @@ push.setVapidDetails('mailto:test@code.co.in', vapidkeys.publicKey, vapidkeys.pr
 
 let sub = [
     {
-        "endpoint": "https://fcm.googleapis.com/fcm/send/eLAPhkPYMSw:APA91bEKyIKMB10IAj8tsBSt5sTJzMm2" +
-                "JIK7tK2QR9LrJY9pt-udijEcMFOZuZhOkSlzOlUfHkvEVFQjESlVlUJh-7kZrUarVMKDlPnKtE_Uam4M" +
-                "nEBBpw2pBEGwj3c3REmvyOsHdPd7",
+        "endpoint": "https://fcm.googleapis.com/fcm/send/carvFwGSnt8:APA91bEJI9DYxuNcvBd1WkkqjMJ65-6P" +
+            "1mdcfQqbGJ2EEMgxdwT5ueuImKm5-2EDmsVORQ93FHHfSMraKlJltA8fPZbMRseTmf9kfJXxMCM5tDmL" +
+            "BSCx0lsSJ3Pw96r5A9Xio9FjBB3E",
         "expirationTime": null,
         "keys": {
-            "p256dh": "BCBSgdnFIJhslTlZQQAKiRAFjhvQ9eBr4bXmN1dzkVIRUMCjpYgX942gpB_9FjB9a3DWqL9pmlR7DnM8" +
-                    "jbk217o",
-            "auth": "zHXltPDSOeAKDmMjLzqGvg"
-        }
-    }, {
-        "endpoint": "https://fcm.googleapis.com/fcm/send/df1CikHIN4E:APA91bEw6bNkmQ9kDmql2XhivhxP-Bhb" +
-                "PzhH7n4IAHrS4H7ciaH9aoXHyeQqNghUk6VRTWBOYUXGn5mYSjFkQ-0R60XwVhOqWWh9ERi4wzqEZOow" +
-                "E3TAGEl_n4Xo0LSANBJEDr415ixC",
-        "expirationTime": null,
-        "keys": {
-            "p256dh": "BKEjXByQWO5Xi1aUegmAHRpvJHGLlVvnUqA33joxUXrtfs_3RRodXi3vVMZW3jewinocsObvj1aAbIV5" +
-                    "2FmJpRQ",
-            "auth": "c02ASjfbopInrSlnBWBJAA"
+            "p256dh": "BG_caYLnZCK-45iqMbcmtLQtd6RK-kqCHBXY2BdOi1Pwhm_qEHpd5PlaqFTEFuwnhCcxAvhbHiDzBHLs" +
+                "pjyxv78",
+            "auth": "52dgKrv7fTe6y2Zr0Uf7og"
         }
     }
-];
 
-// for (var i in sub){
-//   console.log(sub[i]);
-// }
+];
+let payLoad = JSON.stringify({
+    "notification": {
+      "title": "The push notification title",
+      "actions": [
+        {
+          "action": "actionOne",
+          "title": "Action One"
+        }
+      ],
+      "body": "The is the body which will be shown on notification",
+      "dir": "auto",
+      "icon": "path to icon",
+      "badge": "path to badge",
+      "lang": "en",
+      "renotify": true,
+      "requireInteraction": true,
+      "tag": 926796012340920300,
+      "vibrate": [300, 100, 400],
+      "data": {
+        // this object can contain arbitrary info
+      }
+    }
+  });
+// for (var i in sub){   console.log(sub[i]); }
 for (var i in sub) {
-    push.sendNotification(sub[i], 'test message')
+    push.sendNotification(sub[i], payLoad)
 }
